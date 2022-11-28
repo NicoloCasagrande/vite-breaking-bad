@@ -1,13 +1,18 @@
 <script>
-export default {};
+export default {
+  name: "CardCharacters",
+  props: {
+    info: Object,
+  },
+};
 </script>
 
 <template>
-  <div class="d-flex flex-column justify-content-center m-3">
-    <img src="" alt="" />
-    <h3>Walter White</h3>
-    <span>Breaking Bad</span>
-    <span>Alive</span>
+  <div class="d-flex flex-column justify-content-center align-items-center m-3">
+    <img :src="info.img" alt="" />
+    <h3>{{ info.name }}</h3>
+    <span>{{ info.category }}</span>
+    <span>{{ info.status }}</span>
   </div>
 </template>
 
