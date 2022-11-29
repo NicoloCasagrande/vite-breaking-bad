@@ -19,6 +19,7 @@ export default {
         .get("https://www.breakingbadapi.com/api/characters", {
           params: {
             category: this.store.searchText,
+            name: this.store.searchName,
           },
         })
         .then((resp) => {
@@ -44,6 +45,12 @@ export default {
     <option value="Breaking Bad">Breaking Bad</option>
     <option value="Better Call Saul">Better Call Saul</option>
   </select>
+  <input
+    class="mx-3"
+    type="text"
+    v-model="store.searchName"
+    @keyup="searchParameters"
+  />
   <div class="px-3">
     <SectionCharacters />
   </div>
