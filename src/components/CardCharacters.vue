@@ -10,7 +10,7 @@ export default {
 <template>
   <div class="d-flex flex-column justify-content-center align-items-center m-3">
     <img :src="info.img" alt="" />
-    <h3>{{ info.name }}</h3>
+    <h6>{{ info.name.toUpperCase() }}</h6>
     <span>{{ info.category }}</span>
     <span>{{ info.status }}</span>
   </div>
@@ -28,8 +28,9 @@ img {
   width: 11.875rem;
   height: 15.625rem;
   object-fit: contain;
+  margin-bottom: 3.125rem;
 }
-h3 {
+h6 {
   color: white;
 }
 
