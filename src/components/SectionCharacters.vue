@@ -1,4 +1,5 @@
 <script>
+import { store } from "../store.js";
 import axios from "axios";
 import CardCharacters from "./CardCharacters.vue";
 export default {
@@ -8,6 +9,7 @@ export default {
   data() {
     return {
       characters: [],
+      store,
     };
   },
   created() {
@@ -20,6 +22,9 @@ export default {
 
 <template>
   <section>
+    <div>
+      <span>Found {{}}</span>
+    </div>
     <div class="row">
       <CardCharacters
         v-for="character in characters"

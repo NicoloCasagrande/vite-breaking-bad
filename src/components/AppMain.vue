@@ -1,4 +1,6 @@
 <script>
+import { store } from "../store.js";
+
 import SectionCharacters from "./SectionCharacters.vue";
 
 export default {
@@ -6,15 +8,20 @@ export default {
   components: {
     SectionCharacters,
   },
+  data() {
+    return {
+      store,
+    };
+  },
 };
 </script>
 
 <template>
-  <select name="category" id="" class="ms-2 my-3">
+  <select name="category" id="" class="ms-2 my-3" v-model="store.searchText">
     <option value="" disabled selected>Select Category</option>
-    <option value="deceased">Deceased</option>
-    <option value="alive">Alive</option>
-    <option value="presumed-dead">Presumed Dead</option>
+    <option value="Deceased">Deceased</option>
+    <option value="Alive">Alive</option>
+    <option value="Presumed Dead">Presumed Dead</option>
   </select>
   <div>
     <SectionCharacters />
