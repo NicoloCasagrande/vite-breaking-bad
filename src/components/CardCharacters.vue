@@ -21,11 +21,13 @@ div {
   background-color: #2e3a46;
   height: 28.125rem;
   width: 13.75rem;
+  text-align: center;
 }
 
 img {
   width: 11.875rem;
-  height: auto;
+  height: 15.625rem;
+  object-fit: contain;
 }
 h3 {
   color: white;

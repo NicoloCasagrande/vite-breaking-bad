@@ -1,6 +1,6 @@
 <script>
-import { store } from "../store.js";
-
+import { store } from "../store";
+import axios from "axios";
 import SectionCharacters from "./SectionCharacters.vue";
 
 export default {
@@ -13,17 +13,38 @@ export default {
       store,
     };
   },
+  methods: {
+    searchParameters() {
+      axios
+        .get("https://www.breakingbadapi.com/api/characters", {
+          params: {
+            category: this.store.searchText,
+          },
+        })
+        .then((resp) => {
+          this.store.characters = resp.data;
+        });
+    },
+  },
+  created() {
+    this.searchParameters();
+  },
 };
 </script>
 
 <template>
-  <select name="category" id="" class="ms-2 my-3" v-model="store.searchText">
-    <option value="" disabled selected>Select Category</option>
-    <option value="Deceased">Deceased</option>
-    <option value="Alive">Alive</option>
-    <option value="Presumed Dead">Presumed Dead</option>
+  <select
+    name="category"
+    id=""
+    class="ms-2 my-3"
+    v-model="store.searchText"
+    @click="searchParameters"
+  >
+    <option value="">Select Category</option>
+    <option value="Breaking Bad">Breaking Bad</option>
+    <option value="Better Call Saul">Better Call Saul</option>
   </select>
-  <div>
+  <div class="px-3">
     <SectionCharacters />
   </div>
 </template>
